@@ -34,6 +34,8 @@ namespace ObjCompare
                 Check("array2", Comparer.Compare(a1, a2), false);
                 Check("anonym", Comparer.Compare(new { Amount = 108, Message = "Hello" }, new { Amount = 108, Message = "Hello" }), true);
                 Check("anonym2", Comparer.Compare(new { Amount = 108, Message = "Hello" }, new { Amount = 108, Message = "Hello2" }), false);
+                Check("date equal", Comparer.Compare(new DateTime(2010, 12, 01), new DateTime(2010, 12, 01)), true);
+                Check("date differ", Comparer.Compare(new DateTime(2010, 12, 01), new DateTime(2011, 12, 01)), false);
 
                 A aa1 = new A() { IntProp = 1, StringProp = "111", StructProp = new S(), ClassProp = new C(),
                     ListIntProp = new List<int>() { 1, 2 }, ListStringProp = new List<string> { "111", "222" }, ListStructProp = new List<S>(), ListClassProp = new List<C>(),

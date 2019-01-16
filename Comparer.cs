@@ -9,6 +9,7 @@ namespace ObjCompare
 {
     class Comparer
     {
+        /// <summary>Returns description of difference or empty value if equal</summary>
         public static string Compare(object obj1, object obj2, string path = "")
         {
             string path1 = string.IsNullOrEmpty(path) ? "" : path + ": ";
@@ -76,6 +77,8 @@ namespace ObjCompare
                     {
                         var val = pi.GetValue(obj1);
                         var tval = pi.GetValue(obj2);
+                        if (path.EndsWith("." + pi.Name))
+                            return null;
                         var pathNew = (path.Length == 0 ? "" : path + ".") + pi.Name;
                         string res = Compare(val, tval, pathNew);
                         if (res != null)
@@ -90,6 +93,8 @@ namespace ObjCompare
                 {
                     var val = fi.GetValue(obj1);
                     var tval = fi.GetValue(obj2);
+                    if (path.EndsWith("." + fi.Name))
+                        return null;
                     var pathNew = (path.Length == 0 ? "" : path + ".") + fi.Name;
                     string res = Compare(val, tval, pathNew);
                     if (res != null)
