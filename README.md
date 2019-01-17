@@ -1,5 +1,5 @@
 Compare two objects: identical they or not.  
-Not just say, that xml are equal or different, but say where is difference.  
+When found a difference, reports the place where the discrepancy is found.  
 Performs a deep comparison of nested properties and data, including arrays, lists, dictionaries, primitive types, etc.  
 
 ## How to use
