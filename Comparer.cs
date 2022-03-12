@@ -75,8 +75,8 @@ namespace ObjCompare
                 {
                     try
                     {
-                        var val = pi.GetValue(obj1);
-                        var tval = pi.GetValue(obj2);
+                        var val = pi.GetValue(obj1, null);
+                        var tval = pi.GetValue(obj2, null);
                         if (path.EndsWith("." + pi.Name))
                             return null;
                         var pathNew = (path.Length == 0 ? "" : path + ".") + pi.Name;
